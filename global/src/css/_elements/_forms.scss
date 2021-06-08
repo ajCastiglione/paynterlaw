@@ -1,0 +1,163 @@
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+    color: $color__text-input;
+    border: 1px solid $color__border-input;
+    border-radius: 3px;
+    padding: 3px;
+
+    &:focus {
+        color: $color__text-input-focus;
+    }
+}
+
+select {
+    border: 1px solid $color__border-input;
+    max-width: 80%;
+}
+
+textarea {
+    width: 100%;
+}
+
+.entry-content {
+    // Gform wrapper
+    .gform_wrapper {
+        background-color: $black;
+        padding: 25px;
+        margin: 50px 0 !important;
+        @include media(">=laptop") {
+            margin: 75px 0 0;
+        }
+
+        .gform_body {
+            li.gfield {
+                &.gfield_contains_required {
+                    div.gf_name_has_2 span {
+                        position: relative;
+                        &:before {
+                            position: absolute;
+                            content: "*";
+                            color: $red;
+                            left: -7px;
+                            bottom: 5px;
+                        }
+                    }
+                    div.ginput_container:not(.gf_name_has_2) {
+                        position: relative;
+                        &:before {
+                            position: absolute;
+                            content: "*";
+                            color: $red;
+                            left: -7px;
+                            bottom: 5px;
+                        }
+                    }
+                }
+                &.gf_left_half,
+                &.gf_right_half {
+                    width: 100%;
+                    @include media(">=laptop") {
+                        width: 50%;
+                    }
+                }
+                .gfield_label {
+                    color: $white;
+                    text-transform: uppercase;
+                    font-weight: 400;
+                }
+                div.ginput_container {
+                    label {
+                        display: none;
+                    }
+                    span {
+                        width: 100%;
+                        margin-top: 16px;
+                        @include media(">=laptop") {
+                            width: 50%;
+                        }
+                    }
+                    input,
+                    textarea {
+                        background-color: transparent;
+                        border: 2px solid transparent;
+                        outline: none;
+                        border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+                        transition: all 0.3s ease;
+                        color: $white;
+                        &::placeholder {
+                            text-transform: uppercase;
+                            color: $white;
+                        }
+                        &:hover,
+                        &:active,
+                        &:focus {
+                            border-bottom-color: $white;
+                        }
+                    }
+                }
+                div.ginput_container_textarea {
+                    textarea {
+                        border-bottom-color: transparent;
+                        border-top: 2px solid rgba(255, 255, 255, 0.3);
+                        background-color: rgba(255, 255, 255, 0.05);
+                        &:hover,
+                        &:active,
+                        &:focus {
+                            border-top-color: $white;
+                            border-bottom-color: transparent;
+                        }
+                    }
+                }
+            }
+            #field_1_4 {
+                margin-top: 25px;
+                &:hover {
+                    .gfield_label {
+                        color: $white;
+                    }
+                }
+            }
+        }
+        // Gform footer
+        .gform_footer {
+            text-align: center;
+            .gform_button {
+                background-color: #646569;
+                border: none;
+                border-radius: 0;
+                text-transform: uppercase;
+                font-family: Roboto;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 1.33;
+                letter-spacing: 2px;
+                text-align: center;
+                color: $white;
+                margin: 0;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                &:hover {
+                    background-color: $white;
+                    color: $black;
+                }
+                @include media(">=tablet") {
+                    width: 194px;
+                }
+            }
+        }
+    }
+}

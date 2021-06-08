@@ -1,0 +1,64 @@
+@import "../../../global/src/css/functions";
+@import "../../../global/src/css/_settings/variables";
+
+.error-404 {
+    text-align: center;
+    margin-bottom: 64px;
+    @include media(">=tablet") {
+        margin-bottom: 128px;
+    }
+    .err-title {
+        font-size: 70px;
+        margin-bottom: 25px;
+        @include media(">=tablet") {
+            font-size: 90px;
+        }
+    }
+
+    .search__form-container {
+        margin-top: 32px;
+        .search__form {
+            width: 100%;
+            position: relative;
+            svg {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+                left: 32px;
+                path {
+                    stroke: $tangerine;
+                }
+            }
+        }
+        .search__label {
+            display: none;
+        }
+        .search__input {
+            width: 100%;
+            padding: 25px 25px 25px 75px;
+            background-color: $gray-100;
+            font-family: Roboto;
+            font-size: 20px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.7;
+            letter-spacing: normal;
+            text-align: left;
+            color: $black;
+            border: 2px solid transparent;
+            @include media(">=laptop") {
+                padding: 50px 50px 50px 117px;
+            }
+            &:active,
+            &:focus {
+                border-color: $tangerine;
+                outline: none;
+            }
+            &::placeholder {
+                color: $black;
+            }
+        }
+    }
+}

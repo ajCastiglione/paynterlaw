@@ -1,0 +1,61 @@
+@import "../../../global/src/css/functions";
+@import "../../../global/src/css/_settings/variables";
+
+.sidebar {
+    background-color: $gray-200;
+    padding: 84px 36px 48px;
+    @include media(">=tablet") {
+        padding: 114px 24px 0 64px;
+    }
+    @include media(">=laptop") {
+        padding: 198px 24px 0;
+    }
+    @include media(">=desktop") {
+        padding-left: 318px;
+    }
+    &__title {
+        font-family: Roboto;
+        font-weight: bold;
+        font-size: 15px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-transform: uppercase;
+        color: $darkOrange;
+        a {
+            color: inherit;
+        }
+        @include media(">=laptop") {
+            margin: 0 0 32px;
+            font-size: 19px;
+        }
+    }
+
+    &__categories {
+        .cat-name {
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            color: $black;
+            a {
+                cursor: pointer;
+                border-bottom: 1px solid $gray-300;
+                color: inherit;
+                transition: all 0.3s ease;
+                &:hover,
+                &:active,
+                &:focus {
+                    border-bottom: 1px solid transparent;
+                }
+            }
+            @include media(">=laptop") {
+                font-size: 18px;
+            }
+        }
+    }
+}

@@ -1,0 +1,149 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.steps-band {
+    padding: 32px 0;
+    position: relative;
+    width: 100vw;
+    left: calc(-50vw + 50%);
+    background-color: $white;
+    @include media(">=tablet") {
+        padding: 64px 0;
+    }
+    @include media(">=laptop") {
+        padding: 128px 0;
+    }
+    &__meta {
+        font-family: "Roboto";
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: center;
+        text-transform: uppercase;
+        color: $orange;
+        margin: 0;
+    }
+    &__title {
+        font-family: "Montserrat";
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 1.22;
+        text-align: center;
+        color: $black;
+        margin: 10px 0 25px;
+    }
+
+    // Contains vals and cta
+    &__main {
+        @include media(">=laptop") {
+            margin-top: 175px;
+            border: 2px solid $tangerine;
+        }
+    }
+
+    // Values grid
+    &__values {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 20px 35px;
+        @include media(">=tablet") {
+            position: relative;
+            &:after {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                height: 80%;
+                border: 2px solid $tangerine;
+                margin: auto 0;
+                content: "";
+            }
+        }
+        @include media(">=laptop") {
+            grid-template-columns: repeat(3, minmax(240px, 240px));
+            justify-content: center;
+            margin-top: -125px;
+            position: static;
+            &:after {
+                display: none;
+            }
+        }
+        .value {
+            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+            background-color: $white;
+            text-align: center;
+            padding: 20px 10px;
+            margin: auto;
+            @include media(">=tablet") {
+                max-width: 474px;
+                position: relative;
+                z-index: 1;
+                padding: 20px 40px;
+            }
+            @include media(">=laptop") {
+                max-width: 270px;
+            }
+            .step {
+                font-family: Roboto;
+                font-size: 24px;
+                font-weight: bold;
+                line-height: 1.33;
+                text-align: center;
+                margin: 0;
+                color: $black;
+            }
+            .title {
+                font-family: Montserrat;
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 1.2;
+                text-align: center;
+                color: $black;
+            }
+            .content {
+                font-family: Roboto;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1.75;
+                text-align: center;
+                color: $black;
+            }
+        }
+    }
+
+    &__cta {
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: center;
+        color: $gray;
+        padding: 35px 0;
+        .btn {
+            color: inherit;
+            display: inline-block;
+            position: relative;
+            &:hover {
+                color: $red;
+                svg {
+                    right: -15px;
+                }
+            }
+        }
+        svg {
+            position: absolute;
+            right: -10px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            transition: all 0.3s ease;
+            path {
+                stroke: $tangerine;
+            }
+        }
+    }
+}

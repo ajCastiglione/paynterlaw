@@ -1,0 +1,10 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.single-cases {
+    .hero__inner {
+        &:after {
+            display: none;
+        }
+    }
+}

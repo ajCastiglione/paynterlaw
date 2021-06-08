@@ -1,0 +1,21 @@
+body {
+    overflow-x: hidden;
+
+    &.mobile-nav-active {
+        overflow-y: hidden;
+    }
+    &.search-active {
+        overflow: hidden;
+    }
+}
+
+.site {
+    overflow-x: hidden;
+}
+
+.home {
+    .site-main {
+        // background-image: linear-gradient(to bottom, $white, $gray-100);
+        background-color: $gray-100;
+    }
+}

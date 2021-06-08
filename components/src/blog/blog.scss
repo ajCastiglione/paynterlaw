@@ -1,0 +1,32 @@
+@import "../../../global/src/css/functions";
+@import "../../../global/src/css/_settings/variables";
+@import "../single-our-team/single-our-team.scss";
+
+.blog {
+    &__grid {
+        display: grid;
+        @include media(">=tablet") {
+            grid-template-columns: 1fr 1.5fr;
+        }
+    }
+    &__quick-actions {
+        background-color: $gray-100;
+        position: relative;
+        width: 100vw;
+        left: calc(-50vw + 50%);
+        .wrapper {
+            @extend .quick-actions;
+        }
+
+        .action {
+            a {
+                transition: all 0.3s ease;
+                &:hover,
+                &:active,
+                &:focus {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,135 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+// hero parent
+.hero {
+    padding: 64px 0;
+    background-color: $white;
+    @include media(">=laptop") {
+        padding: 128px 0;
+    }
+    &[data-bg="gray"] {
+        background-color: $gray-100;
+    }
+    // Title and content wrap
+    &__inner {
+        position: relative;
+        display: grid;
+        @include media(">=laptop") {
+            grid-template-columns: 1.2fr 0.8fr;
+            grid-gap: 10px 15px;
+            // align-items: flex-end;
+        }
+        @include media(">=desktop") {
+            grid-template-columns: 1.2fr 0.8fr;
+            grid-gap: 10px 25px;
+
+            .page-template-page-team & {
+                &:after {
+                    position: absolute;
+                    bottom: -250px;
+                    left: 0;
+                    content: "";
+                    background-color: $tangerine;
+                    width: 3px;
+                    height: 208px;
+                    z-index: 3;
+                }
+            }
+        }
+    }
+    &__pretitle {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: left;
+        text-transform: uppercase;
+        color: $darkOrange;  
+        margin: 0;
+        @include media(">=tablet") {
+            font-size: 15px;
+        }
+        @include media(">=laptop") {
+            font-size: 19px;
+        }
+    }
+    &__title {
+        font-family: Montserrat;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: normal;
+        text-align: left;
+        color: $black;
+        margin: 10px 0;
+        @include media(">=tablet") {
+            font-size: 46px;
+        }
+        @include media(">=laptop") {
+            font-size: 50px;
+        }
+    }
+
+    // Content hero
+    &__content {
+        margin-top: 25px;
+        @include media(">=desktop") {
+            padding: 0 0 0 64px;
+        }
+    }
+    &__text {
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.7;
+        letter-spacing: normal;
+        text-align: left;
+        color: $gray-500;
+        a {
+            color: $orange;
+            border-bottom: 1px solid $orange;
+        }
+    }
+    &__cta {
+        margin-top: 25px;
+        @include media(">=laptop") {
+            margin-top: 50px;
+        }
+        .btn {
+            position: relative;
+            background-color: $black;
+            font-family: Roboto;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            color: $white;
+            padding-right: 55px;
+            svg {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+                right: 20px;
+                path {
+                    stroke: $orange;
+                }
+            }
+            &:hover {
+                background-color: $orange;
+                color: $white;
+                svg {
+                    right: 15px;
+                    path {
+                        stroke: $white;
+                    }
+                }
+            }
+        }
+    }
+}

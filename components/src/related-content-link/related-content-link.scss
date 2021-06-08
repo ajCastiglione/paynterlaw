@@ -1,0 +1,52 @@
+@import "../../../global/src/css/functions";
+@import "../../../global/src/css/_settings/variables";
+
+.related-content {
+    padding: 48px 0;
+    @include media(">=tablet") {
+        padding: 64px 0;
+    }
+    @include media(">=laptop") {
+        max-width: 848px;
+        margin: auto;
+    }
+    &__container {
+        border-top: 2px solid $gray-200;
+        border-bottom: 2px solid $gray-200;
+        padding: 32px 0;
+        display: grid;
+        grid-template-columns: minmax(auto, 75px) 1fr;
+        justify-content: flex-start;
+        grid-gap: 24px;
+        @include media(">=tablet") {
+            grid-gap: 74px;
+        }
+        @include media(">=laptop") {
+            grid-gap: 92px;
+        }
+    }
+
+    &__more {
+        font-family: Montserrat;
+        font-size: 15px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.6;
+        letter-spacing: normal;
+        text-align: left;
+        color: $orange;
+        display: inline-block;
+    }
+    &__article {
+        font-size: 16px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.75;
+        letter-spacing: normal;
+        text-align: left;
+        color: $black;
+        text-decoration: underline;
+    }
+}

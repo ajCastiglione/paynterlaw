@@ -1,0 +1,82 @@
+.wrapper {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 30px;
+  transition: padding 0.3s ease-in-out;
+
+  @include media(">=phone", "<phablet") {
+    //phone >=320px to <480px
+    padding: 0 30px;
+  }
+  @include media(">=phablet", "<mini-tablet") {
+    //phablet >=480px to <640px
+    padding: 0 30px;
+  }
+  @include media(">=mini-tablet", "<tablet") {
+    //mini-tablets >=640px to <768px
+    padding: 0 30px;
+  }
+  @include media(">=tablet", "<laptop") {
+    //tablets >=768px to <1025px
+    padding: 0 30px;
+  }
+  @include media(">=laptop", "<desktop") {
+    //laptop >=1025px to 1340px
+    padding: 0 30px;
+  }
+  @include media(">=desktop") {
+    // desktop >= 1340px
+    max-width: 1280px;
+    padding: 0;
+    #block-contactus &,
+    #block-headerblock & {
+      .page-contact-us & {
+        max-width: 1560px;
+        padding: 0 0 0 30px;
+      }
+    }
+  }
+
+  &--full {
+    @include media(">=desktop") {
+      // desktop >=1340px
+      max-width: 100%;
+      padding: 0;
+    }
+  }
+
+  // modifier for icon list band
+  &--large {
+    @include media(">=1920px") {
+      // desktop >=1340px
+      max-width: 1760px;
+      padding: 0;
+    }
+  }
+
+  // modifier for icon list band
+  &--offset-right {
+    @include media(">=1920px") {
+      padding-right: 240px;
+    }
+  }
+
+  // modifier for icon list band
+  &--offset-left {
+    @include media(">=1920px") {
+      padding-left: 240px;
+    }
+  }
+
+  &--skinny {
+    @include media(">=laptop") {
+      // desktop >=1340px
+      max-width: 850px;
+      padding: 0 60px;
+    }
+  }
+
+  &--pad-none {
+    padding: 0;
+  }
+}

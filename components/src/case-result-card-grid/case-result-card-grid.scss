@@ -1,0 +1,112 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.case-results {
+    padding: 48px 0;
+    @include media(">=tablet") {
+        padding: 64px;
+    }
+    @include media(">=laptop") {
+        padding: 128px 32px;
+    }
+
+    &__container {
+        display: grid;
+        grid-gap: 24px 0;
+        @include media(">=tablet") {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 24px;
+        }
+        @include media(">=laptop") {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .case-result {
+        transition: all 0.3s ease;
+        border: 2px solid $tangerine;
+        color: $black;
+        position: relative;
+        padding: 16px;
+        @include media(">=laptop") {
+            padding: 48px 24px;
+        }
+        @include media(">=desktop") {
+            padding: 48px;
+        }
+        &__amount {
+            font-family: Montserrat;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.22;
+            letter-spacing: normal;
+            text-align: left;
+            color: inherit;
+            margin: 0;
+        }
+        &__title {
+            font-family: Roboto;
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 2px;
+            text-align: left;
+            color: inherit;
+            margin: 24px 0;
+        }
+        &__excerpt {
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.63;
+            letter-spacing: normal;
+            text-align: left;
+            color: inherit;
+            margin: 0 0 128px;
+        }
+        &__cta {
+            font-family: Roboto;
+            font-size: 18px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            color: $gray-500;
+            background-color: $gray-100;
+            position: absolute;
+            bottom: 48px;
+            max-width: 80%;
+            padding-right: 35px;
+            @include media(">=desktop") {
+                padding-right: 45px;
+            }
+            svg {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+                right: 15px;
+                path {
+                    stroke: $tangerine;
+                }
+            }
+            &:hover {
+                svg {
+                    right: 10px;
+                }
+            }
+        }
+        &:hover {
+            background-color: $orange;
+            border-color: $orange;
+            color: $white;
+        }
+    }
+}

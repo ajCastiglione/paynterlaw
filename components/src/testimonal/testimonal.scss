@@ -1,0 +1,136 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.testimonial {
+    position: relative;
+    padding: 32px;
+    .home & {
+        padding-top: 132px;
+    }
+    @include media(">=tablet") {
+        padding: 64px;
+        .home & {
+            padding-top: 164px;
+        }
+    }
+    @include media(">=laptop") {
+        padding: 128px 0;
+        .home & {
+            padding-top: 250px;
+        }
+    }
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr;
+        position: relative;
+        justify-content: center;
+        grid-gap: 10px 0;
+        @include media(">=tablet") {
+            grid-gap: 25px 0;
+        }
+        @include media(">=laptop") {
+            grid-template-columns: 3fr 1fr;
+            grid-gap: 10px 20px;
+        }
+    }
+    &__icon {
+        text-align: center;
+        @include media(">=tablet") {
+            position: absolute;
+            top: 30%;
+            left: 0;
+        }
+    }
+    &__single {
+        @include media(">=tablet") {
+            padding-left: 80px;
+        }
+    }
+    &__content {
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.7;
+        text-align: left;
+        color: $gray;
+        p,
+        h2,
+        h3 {
+            margin: 0;
+        }
+        a {
+            border-bottom: 1px solid $gray;
+            &:hover,
+            &:focus,
+            &:active {
+                border-bottom: 0px;
+            }
+        }
+    }
+    &__author {
+        font-family: Roboto;
+        font-size: 20px;
+        line-height: 1.7;
+        text-align: center;
+        color: $gray-400;
+        font-weight: 400;
+        margin: 15px 0;
+        @include media(">=tablet") {
+            text-align: right;
+            margin: 0;
+        }
+    }
+    &__cta {
+        text-align: center;
+        @include media(">=tablet") {
+            justify-self: center;
+        }
+        @include media(">=laptop") {
+            justify-self: flex-start;
+        }
+        .btn {
+            position: relative;
+            background-color: $gray-100;
+            color: $gray-500;
+            font-family: Roboto;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            padding-right: 45px;
+            &:hover {
+                background-color: $tangerine;
+                color: $white;
+                svg {
+                    right: 10px;
+                    path {
+                        stroke: $white;
+                    }
+                }
+            }
+            svg {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 15px;
+                margin: auto 0;
+                transition: all 0.3s ease;
+                path {
+                    stroke: $tangerine;
+                }
+            }
+        }
+    }
+
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        margin-left: calc(-50vw + 50%);
+        background-color: $white;
+    }
+}

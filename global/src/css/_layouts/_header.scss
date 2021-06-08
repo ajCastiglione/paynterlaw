@@ -1,0 +1,485 @@
+@import "../../../global/src/css/functions";
+
+.skip-main {
+    position: absolute;
+    left: -999px;
+    top: auto;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    z-index: -999;
+    text-transform: capitalize;
+    &:focus,
+    &:active {
+        color: $white;
+        background-color: $darkOrange;
+        left: auto;
+        top: auto;
+        width: 30%;
+        height: auto;
+        overflow: auto;
+        margin: 10px 35%;
+        padding: 5px;
+        border: 2px solid $white;
+        outline-color: $white;
+        text-align: center;
+        font-size: 1.2em;
+        z-index: 999;
+    }
+}
+.site-header {
+    background-color: $white;
+    padding: 0.5rem 12px 10px;
+    position: relative;
+    .home & {
+        background-color: $white;
+        overflow-x: hidden;
+        padding-bottom: 32px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        @include media(">=laptop") {
+            padding-bottom: 64px;
+        }
+    }
+
+    .blog &,
+    .archive & {
+        background-color: $pastel_red;
+    }
+
+    &[data-bg="gray"] {
+        background-color: $gray-100;
+    }
+    grid-gap: 20px;
+    align-items: center;
+    @include media(">=phablet") {
+        display: grid;
+    }
+    @include media(">=tablet") {
+        padding: 2rem 1.5rem 10px;
+    }
+    @include media(">=laptop") {
+        grid-template-columns: 0.6fr 4.5fr;
+    }
+    @include media(">=desktop") {
+        grid-template-columns: 1fr 2.5fr;
+    }
+
+    .site-branding {
+        @include media("<tablet") {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 75px;
+            img {
+                max-width: 200px;
+            }
+            .hamburger {
+                path {
+                    .home &,
+                    .blog & {
+                        stroke: $white;
+                    }
+                    stroke: $black;
+                }
+            }
+        }
+        @include media("<phablet") {
+            margin-bottom: 15px;
+        }
+        @include media(">=tablet") {
+            .hamburger {
+                display: none;
+            }
+        }
+        .custom-logo {
+            max-width: 230px;
+            @include media(">=desktop") {
+                max-width: 311px;
+            }
+        }
+    }
+
+    // Search form under header
+    .header-search {
+        position: absolute;
+        background-color: $gray-100;
+        width: 100%;
+        padding: 25px 1rem;
+        top: 170px;
+        opacity: 0;
+        z-index: -1;
+        transition: all 0.3s ease;
+        &__form {
+            display: grid;
+            align-items: center;
+            justify-content: center;
+            grid-gap: 20px;
+            grid-template-columns: 1fr 1fr 1fr;
+            @include media(">=tablet") {
+                grid-template-columns: 1fr 2fr 1fr;
+            }
+            @include media(">=desktop") {
+                grid-template-columns: 1fr 3fr 1fr;
+            }
+        }
+        .search-icon {
+            text-align: right;
+            justify-self: flex-end;
+            path {
+                stroke: $pastel_red;
+            }
+        }
+        &__input {
+            border: none;
+            outline: none;
+            background-color: $gray-100;
+            color: $black;
+            height: 100%;
+            &::placeholder {
+                font-weight: bold;
+                color: lighten($black, 10%);
+            }
+            /* clears the 'X' from Internet Explorer */
+            &::-ms-clear {
+                display: none;
+                width: 0;
+                height: 0;
+            }
+            &::-ms-reveal {
+                display: none;
+                width: 0;
+                height: 0;
+            }
+
+            /* clears the 'X' from Chrome */
+            &::-webkit-search-decoration,
+            &::-webkit-search-cancel-button,
+            &::-webkit-search-results-button,
+            &::-webkit-search-results-decoration {
+                display: none;
+            }
+        }
+        &__close {
+            margin: 0;
+            font-weight: bold;
+            svg {
+                cursor: pointer;
+            }
+        }
+
+        &.active {
+            left: 0;
+            z-index: 99;
+            opacity: 1;
+            .curtain {
+                z-index: 98;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;
+                opacity: 1;
+                @include media(">=laptop") {
+                    height: calc(100vh - 260px);
+                }
+            }
+        }
+        .curtain {
+            position: fixed;
+            z-index: -1;
+            width: 100%;
+            opacity: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            transition: all 0.3s ease;
+        }
+    }
+    // Accounting for alert being shown
+    &.alert-shown {
+        .active {
+            .curtain {
+                @include media(">=laptop") {
+                    height: calc(100vh - 393px);
+                }
+                @include media(">=desktop") {
+                    height: calc(100vh - 355px);
+                }
+            }
+        }
+    }
+
+    .hero {
+        position: relative;
+        z-index: 2;
+
+        @include media(">=tablet") {
+            grid-column: 1/3;
+        }
+        // Wrapper for top half
+        &__wrapper {
+            margin: auto;
+            position: relative;
+            max-width: 800px;
+            width: 100%;
+            padding: 30px 20px 40px;
+            @include media(">=tablet") {
+                padding: 65px 0;
+                flex-wrap: nowrap;
+            }
+            @include media(">=laptop") {
+                padding: 102px 0;
+                max-width: 940px;
+            }
+            @include media(">=desktop") {
+                max-width: 1200px;
+            }
+        }
+        // Container for hero titles
+        &__titles {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            flex-wrap: wrap;
+            @include media(">=tablet") {
+                justify-content: flex-start;
+            }
+        }
+
+        &__pretitle {
+            font-family: Montserrat;
+            font-size: 85px;
+            font-weight: bold;
+            line-height: 0.96;
+            text-align: left;
+            color: $white;
+            @include media(">=laptop") {
+                font-size: 115px;
+            }
+            h2,
+            h3,
+            h4 {
+                color: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                margin: 0;
+            }
+            .orange {
+                color: $tangerine;
+            }
+            .ml {
+                @include media(">=tablet") {
+                    margin-left: 72px;
+                }
+            }
+        }
+        &__title {
+            font-family: Roboto;
+            font-size: 32px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1;
+            letter-spacing: 4.4px;
+            text-align: left;
+            color: $tangerine;
+            text-transform: uppercase;
+            margin-top: 16px;
+            margin-left: 16px;
+            @include media(">=tablet") {
+                margin-top: 0;
+            }
+            @include media(">=laptop") {
+                font-size: 40px;
+            }
+            h2,
+            h3,
+            h4 {
+                color: inherit;
+                font-size: inherit;
+                font-weight: inherit;
+                margin: 0;
+            }
+            .orange {
+                color: $tangerine;
+            }
+        }
+        &__content {
+            font-family: Roboto;
+            font-size: 24px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 2.64px;
+            text-align: center;
+            color: $white;
+            text-transform: uppercase;
+            margin-top: 40px;
+            @include media(">=tablet") {
+                text-align: left;
+            }
+            a {
+                color: $tangerine;
+                text-decoration: underline;
+            }
+        }
+
+        &__form {
+            background-color: $white;
+            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            padding: 1rem 35px 100px;
+            margin: auto;
+            position: relative;
+            @include media(">=tablet") {
+                padding: 65px 3.5rem;
+            }
+            @include media(">=laptop") {
+                padding: 102px 2rem;
+                max-width: 940px;
+            }
+            @include media(">=desktop") {
+                max-width: 90%;
+            }
+            .inner-form {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                flex-direction: column;
+                max-width: 1200px;
+                margin: auto;
+            }
+        }
+        &__form-pretitle {
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            color: $pastel_red;
+            text-transform: uppercase;
+            margin: 0;
+        }
+        &__form-title {
+            font-family: "Montserrat";
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 1.4;
+            text-align: left;
+            color: #1b1b1b;
+            margin: 10px 0 0;
+            @include media(">=laptop") {
+                font-size: 50px;
+            }
+        }
+
+        &__select-container {
+            width: 100%;
+            @include media(">=laptop") {
+                display: grid;
+                grid-template-columns: 1.2fr 0.8fr;
+                align-items: flex-end;
+            }
+            @include media(">=desktop") {
+                grid-template-columns: 1fr 1fr;
+            }
+            .inner-wrap {
+                width: 100%;
+                position: relative;
+                margin-top: 15px;
+            }
+            .arrow {
+                position: absolute;
+                top: 4px;
+                right: 15px;
+                pointer-events: none;
+                transition: all 0.3s ease;
+            }
+            &.active {
+                .arrow {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        &__options {
+            width: 100%;
+            max-width: 100%;
+            height: 50px;
+            font-size: 100%;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 0;
+            background-color: $white;
+            border: none;
+            border-bottom: 2px solid $black;
+            color: $black;
+            padding: 10px;
+            appearance: none;
+            &::-ms-expand {
+                display: none;
+            }
+            &:hover,
+            &:focus {
+                color: $black;
+                border-bottom-color: $tangerine;
+            }
+        }
+
+        &:before,
+        &:after {
+            border: 2px solid $orange;
+            position: absolute;
+            content: "";
+            top: 0;
+            z-index: 5;
+            display: none;
+        }
+        &:before {
+            top: 20%;
+            left: -80px;
+            transform: rotate(75deg);
+            @include media(">=desktop") {
+                display: block;
+                width: 520px;
+                height: 520px;
+                left: -470px;
+            }
+            @include media(">=largeDesktop") {
+                left: -360px;
+                transform: rotate(80deg);
+            }
+        }
+        &:after {
+            top: 10%;
+            right: -130px;
+            transform: rotate(25deg);
+            @include media(">=desktop") {
+                display: block;
+                width: 603px;
+                height: 603px;
+                right: -543px;
+            }
+            @include media(">=largeDesktop") {
+                top: -10px;
+                right: -515px;
+            }
+        }
+    }
+
+    // :after for main .site-header - only on home page
+    .home & {
+        &:after {
+            content: "";
+            position: absolute;
+            background-color: $gray-100;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 90px;
+        }
+    }
+}

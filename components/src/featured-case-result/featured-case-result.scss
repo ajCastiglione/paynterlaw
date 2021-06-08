@@ -1,0 +1,428 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.featured-case {
+    position: relative;
+    width: 100vw;
+    left: calc(-50vw + 50%);
+
+    &__grid {
+        display: grid;
+        background-color: $gray-100;
+        @include media(">=tablet") {
+            grid-template-columns: 1.5fr 1fr;
+            &.col-1 {
+                grid-template-columns: 1fr;
+            }
+        }
+    }
+    // main content - left half
+    &__content {
+        background-color: $gray-100;
+        padding: 48px 36px;
+        max-width: 885px;
+        .col-1 & {
+            max-width: 100%;
+        }
+        margin-left: auto;
+        @include media(">=tablet") {
+            padding: 64px;
+        }
+        @include media(">=laptop") {
+            padding: 128px 128px 400px;
+        }
+    }
+    &__meta {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: left;
+        text-transform: uppercase;
+        color: $darkOrange;
+        margin: 0;
+        @include media(">=laptop") {
+            font-size: 19px;
+        }
+    }
+    &__title {
+        font-family: Montserrat;
+        font-size: 26px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.22;
+        letter-spacing: normal;
+        text-align: left;
+        color: $black;
+        margin: 10px 0 48px;
+        @include media(">=tablet") {
+            font-size: 32px;
+        }
+        @include media(">=laptop") {
+            font-size: 36px;
+        }
+    }
+    &__text {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.7;
+        letter-spacing: normal;
+        text-align: left;
+        color: $gray-400;
+        @include media(">=laptop") {
+            font-size: 20px;
+        }
+        p {
+            margin: 0 0 32px;
+        }
+        ul {
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.75;
+            letter-spacing: normal;
+            text-align: left;
+            color: $black;
+            margin: 0;
+            padding-left: 15px;
+            li {
+                margin: 16px 0;
+                &:first-child {
+                    margin-top: 0;
+                }
+            }
+        }
+
+        a {
+            border-bottom: 1px solid $black;
+            &:hover,
+            &:focus,
+            &:active {
+                border-bottom: 0px;
+            }
+        }
+    }
+
+    // Quick fact
+    &__fact {
+        padding: 48px 36px;
+        background-color: $orange;
+        @include media(">=tablet") {
+            padding: 64px 64px 64px 32px;
+        }
+        @include media(">=laptop") {
+            padding: 128px 128px 400px;
+        }
+
+        .inner {
+            @include media(">=tablet") {
+                max-width: 285px;
+                margin-right: auto;
+            }
+        }
+
+        .fact-title {
+            font-family: Montserrat;
+            font-size: 20px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.2;
+            letter-spacing: normal;
+            text-align: left;
+            color: $white;
+            position: relative;
+            padding-top: 32px;
+            margin: 0 0 32px;
+            &:before {
+                position: absolute;
+                top: 0;
+                content: "";
+                background-color: $white;
+                height: 2px;
+                width: 300px;
+                max-width: 100%;
+            }
+        }
+        .fact-content {
+            font-family: Roboto;
+            font-size: 18px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.75;
+            letter-spacing: normal;
+            text-align: left;
+            color: $black;
+            max-width: 316px;
+            @include media(">=tablet") {
+                margin-bottom: 62px;
+            }
+            a {
+                color: $white;
+                border-bottom: 1px solid $white;
+                transition: all 0.3s ease;
+                &:hover {
+                    border-bottom: none;
+                }
+            }
+        }
+        .fact-btn {
+            position: relative;
+            font-family: Roboto;
+            font-size: 18px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            color: $white;
+            border: 2px solid $white;
+            padding: 5px 45px 5px 15px;
+            svg {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+                right: 15px;
+                path {
+                    stroke: $white;
+                }
+            }
+            &:hover {
+                background-color: $white;
+                color: $black;
+                svg {
+                    right: 10px;
+                    path {
+                        stroke: $black;
+                    }
+                }
+            }
+        }
+    }
+
+    // Featured case
+    &__case {
+        margin: auto;
+        display: grid;
+        @include media(">=laptop") {
+            width: 80%;
+            max-width: 1284px;
+            grid-template-columns: 1.69fr 1fr;
+            margin-top: -320px;
+        }
+
+        .result {
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            padding: 60px 36px;
+            @include media(">=tablet") {
+                padding: 64px;
+            }
+            @include media(">=laptop") {
+                padding: 98px 133px 98px 103px;
+            }
+            &:before {
+                position: absolute;
+                content: "";
+                background-color: rgba(0, 0, 0, 0.7);
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            &-meta {
+                position: relative;
+                font-family: Montserrat;
+                font-weight: bold;
+                font-size: 46px;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.03;
+                letter-spacing: normal;
+                color: $white;
+                margin: 0;
+                @include media(">=tablet") {
+                    font-size: 60px;
+                }
+                @include media(">=laptop") {
+                    font-size: 68px;
+                    word-break: break-word;
+                }
+                @include media(">=desktop") {
+                    word-break: unset;
+                }
+            }
+            &-title {
+                position: relative;
+                font-family: Roboto;
+                font-size: 14px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.33;
+                letter-spacing: 2px;
+                color: $white;
+                margin: 24px 0;
+                @include media(">=tablet") {
+                    font-size: 15px;
+                }
+                @include media(">=laptop") {
+                    font-size: 18px;
+                }
+            }
+            &-content {
+                position: relative;
+                font-family: Roboto;
+                font-size: 16px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.63;
+                letter-spacing: normal;
+                color: $white;
+                p {
+                    margin: 24px 0;
+                    &:first-child {
+                        margin: 0;
+                    }
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+
+                a {
+                    color: $white;
+                    border-bottom: 1px solid $white;
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        border-bottom: 0px;
+                    }
+                }
+            }
+            &-cta {
+                position: relative;
+                font-family: Roboto;
+                font-size: 18px;
+                font-weight: bold;
+                line-height: 1.33;
+                letter-spacing: 1.98px;
+                text-align: left;
+                color: $white;
+                border: 2px solid $white;
+                padding-right: 45px;
+                margin-top: 32px;
+                @include media(">=laptop") {
+                    margin-top: 52px;
+                }
+                svg {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto 0;
+                    right: 15px;
+                    path {
+                        stroke: $white;
+                    }
+                }
+                &:hover {
+                    background-color: $white;
+                    color: $black;
+                    svg {
+                        right: 10px;
+                        path {
+                            stroke: $black;
+                        }
+                    }
+                }
+            }
+        }
+
+        .featured-case-testimonial {
+            background-color: $black;
+            text-align: center;
+            padding: 48px 35px;
+            @include media(">=tablet") {
+                padding: 64px 147px;
+            }
+            @include media(">=laptop") {
+                padding: 148px 64px;
+            }
+            &.rows-2 {
+                @include media(">=laptop") {
+                    padding: 124px 64px;
+                }
+                .featured-case-testimonial-inner {
+                    &:first-child {
+                        border-bottom: 2px solid $gray-400;
+                        padding-bottom: 32px;
+                        @include media(">=tablet") {
+                            padding-bottom: 64px;
+                        }
+                        @include media(">laptop") {
+                            padding-bottom: 128px;
+                        }
+                    }
+                    &:last-child {
+                        padding-top: 32px;
+                        @include media(">=tablet") {
+                            padding-top: 64px;
+                        }
+                        @include media(">laptop") {
+                            padding-top: 128px;
+                        }
+                    }
+                }
+            }
+            &-content {
+                margin: 32px 0 48px;
+                font-family: Roboto;
+                font-size: 20px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.7;
+                letter-spacing: normal;
+                color: $white;
+                p {
+                    margin: 0;
+                }
+
+                a {
+                    color: $white;
+                    border-bottom: 1px solid $white;
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        border-bottom: 0px;
+                    }
+                }
+            }
+            &-author {
+                margin: 0;
+                font-family: Roboto;
+                font-size: 20px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.7;
+                letter-spacing: normal;
+                color: $gray-200;
+            }
+        }
+    }
+}

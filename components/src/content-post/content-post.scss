@@ -1,0 +1,115 @@
+@import "../../../global/src/css/functions";
+@import "../../../global/src/css/_settings/variables";
+
+.single {
+    // Parent div
+    .entry-content {
+        background-color: $gray-100;
+        padding: 84px 0 64px;
+        @include media(">=tablet") {
+            padding-top: 114px;
+        }
+        @include media(">=laptop") {
+            padding-top: 198px;
+        }
+    }
+    // the_content parent
+    &__content {
+        padding: 0 36px;
+        @include media(">=tablet") {
+            padding: 0 64px;
+        }
+        p {
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 400;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.7;
+            letter-spacing: normal;
+            color: $gray-500;
+            max-width: 848px;
+            margin: 16px auto;
+            &:first-child {
+                font-size: 20px;
+                font-weight: 500;
+            }
+        }
+        a {
+            border-bottom: 1px solid $gray-500;
+            &:hover,
+            &:focus,
+            &:active {
+                border-bottom: 0px;
+            }
+        }
+        ul {
+            max-width: 848px;
+            margin: 16px auto;
+        }
+        blockquote {
+            max-width: 848px;
+            margin: 55px auto;
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 400;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.7;
+            letter-spacing: normal;
+            text-align: left;
+            color: $gray-500;
+            border-left: 2px solid $tangerine;
+            padding: 15px 0 15px 24px;
+            @include media(">=tablet") {
+                font-size: 20px;
+                padding: 15px 0 15px 48px;
+                margin: 76px auto;
+            }
+            p {
+                width: auto;
+                margin: 0;
+                max-width: 100%;
+                font-size: inherit !important;
+                font-weight: inherit !important;
+            }
+        }
+        figure {
+            @include media(">=laptop") {
+                margin: 64px auto;
+                width: 100% !important;
+                max-width: 1066px;
+            }
+            img {
+                max-width: 100%;
+                width: 100%;
+            }
+            .wp-caption-text {
+                font-family: Roboto;
+                font-size: 15px;
+                font-weight: normal;
+                font-stretch: normal;
+                font-style: italic;
+                line-height: 1.6;
+                letter-spacing: normal;
+                text-align: left;
+                color: $gray-400;
+            }
+        }
+        h2 {
+            font-weight: bold;
+            line-height: 1.22;
+        }
+        h2:not(.featured-articles__title),
+        h3:not(.featured-articles__meta):not(.featured-article__title) {
+            @include media(">=laptop") {
+                max-width: 848px;
+                margin: 48px auto 32px;
+            }
+        }
+        h4:not(.action-title) {
+            max-width: 848px;
+            margin: 48px auto 32px;
+        }
+    }
+}

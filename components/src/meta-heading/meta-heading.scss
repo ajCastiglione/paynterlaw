@@ -1,0 +1,19 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.meta-heading {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: 1.98px;
+    text-align: left;
+    text-transform: uppercase;
+    color: $orange;
+    margin: 0;
+    @include media(">=tablet") {
+        font-size: 18px;
+    }
+}

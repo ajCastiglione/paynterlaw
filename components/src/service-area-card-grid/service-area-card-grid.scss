@@ -1,0 +1,275 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.service-areas {
+    position: relative;
+    width: 100vw;
+    left: calc(-50vw + 50%);
+
+    // If a CTA follows this block, pull it into the element
+    + .cta {
+        position: relative;
+        z-index: 3;
+        margin: -70px 0 0;
+    }
+
+    &:before {
+        position: absolute;
+        z-index: 1;
+        content: "";
+        background-color: rgba(0, 0, 0, 0.85);
+        width: 100%;
+        height: 100%;
+    }
+    &__container {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        padding: 64px 16px;
+        @include media(">=tablet") {
+            padding-bottom: 80px;
+        }
+        @include media(">=laptop") {
+            padding: 128px 0;
+        }
+    }
+    &__grid {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-gap: 30px 0;
+        @include media(">=tablet") {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 64px 50px;
+        }
+        @include media(">=laptop") {
+            grid-gap: 64px 135px;
+        }
+    }
+
+    // single service card
+    &__service {
+        color: $white;
+        padding-bottom: 20px;
+        @include media("<tablet") {
+            border-bottom: 2px solid $gray-500;
+        }
+        @include media(">=tablet") {
+            padding-bottom: 85px;
+            position: relative;
+        }
+
+        .number {
+            display: inline-block;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            color: $orange;
+            margin-bottom: 10px;
+            @include media(">=laptop") {
+                font-size: 18px;
+            }
+        }
+        .service-name {
+            font-family: Montserrat;
+            font-size: 26px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.22;
+            letter-spacing: normal;
+            text-align: left;
+            margin: 0 0 24px;
+            color: $white;
+            @include media(">=tablet") {
+                margin: 0 0 48px;
+                font-size: 32px;
+            }
+            @include media(">=laptop") {
+                font-size: 36px;
+            }
+        }
+
+        .content {
+            p {
+                margin: 0;
+                font-family: Roboto;
+                font-size: 16px;
+                font-weight: 400;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.75;
+                letter-spacing: normal;
+                text-align: left;
+                color: $gray-300;
+                padding-top: 24px;
+                display: none;
+                @include media(">=laptop") {
+                    display: block;
+                }
+                &:first-child {
+                    font-family: Roboto;
+                    font-size: 20px;
+                    line-height: 1.7;
+                    color: $white;
+                    padding: 0;
+                    display: block;
+                }
+            }
+
+            a {
+                color: $white;
+                border-bottom: 1px solid $white;
+                &:hover,
+                &:focus,
+                &:active {
+                    border-bottom: 0px;
+                }
+            }
+        }
+
+        .service-cta {
+            font-family: Roboto;
+            font-size: 18px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            color: $white;
+            max-width: 70%;
+            margin-top: 24px;
+            @include media(">=tablet") {
+                max-width: 60%;
+                position: absolute;
+                bottom: 0;
+                margin: 0;
+            }
+            .btn {
+                position: relative;
+                color: inherit;
+                padding-left: 0;
+                svg {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    margin: auto 0;
+                    right: -10px;
+                    path {
+                        stroke: $tangerine;
+                    }
+                }
+                &:hover,
+                &:focus,
+                &:active {
+                    svg {
+                        right: -15px;
+                    }
+                }
+            }
+        }
+        // service level
+        &.extra-cta-parent {
+            position: relative;
+            padding: 50px 0;
+            border-bottom: none;
+            @include media(">=tablet") {
+                padding: 0;
+            }
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: 75%;
+                height: 100%;
+                border: 2px solid $tangerine;
+                @include media(">=laptop") {
+                    width: 55%;
+                }
+            }
+        }
+        .extra-cta {
+            width: 80%;
+            margin-left: auto;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .cta-meta {
+                font-family: Roboto;
+                font-size: 18px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.33;
+                letter-spacing: 1.98px;
+                text-align: left;
+                color: $orange;
+                margin: 0;
+            }
+            .cta-title {
+                font-family: Montserrat;
+                font-size: 29px;
+                font-weight: 400;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.21;
+                letter-spacing: normal;
+                text-align: left;
+                color: $white;
+            }
+
+            .cta-btn {
+                font-family: Roboto;
+                font-size: 18px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.33;
+                letter-spacing: 1.98px;
+                text-align: left;
+                color: $gray-500;
+
+                .btn {
+                    color: inherit;
+                    background-color: $gray-100;
+                    position: relative;
+                    padding-right: 45px;
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        background-color: $orange;
+                        color: $white;
+                        svg {
+                            right: 10px;
+                            path {
+                                stroke: $white;
+                            }
+                        }
+                    }
+                    svg {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        right: 15px;
+                        margin: auto;
+                        path {
+                            stroke: $tangerine;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,175 @@
+@import "../../../global/src/css/_settings/variables";
+@import "../../../global/src/css/functions";
+
+.featured-content-band {
+    position: relative;
+    padding-top: 50px;
+    @include media(">=tablet") {
+        padding-top: 128px;
+        padding-bottom: 0;
+    }
+    @media (min-width: 910px) {
+        padding-bottom: 40px;
+    }
+    &__container {
+        position: relative;
+        display: grid;
+        @include media(">=laptop") {
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0 15px;
+        }
+    }
+    &__meta {
+        font-family: "Roboto";
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: left;
+        color: $orange;
+        text-transform: uppercase;
+        margin: 0;
+        @include media(">=tablet") {
+            font-size: 18px;
+        }
+    }
+    &__title {
+        position: relative;
+        z-index: 2;
+        font-family: "Montserrat";
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 1.22;
+        text-align: left;
+        color: $black;
+        margin: 10px 0 0;
+        @include media(">=tablet") {
+            font-size: 36px;
+        }
+    }
+    .line {
+        display: block;
+        width: 2px;
+        height: 64px;
+        background-color: $tangerine;
+        margin: 30px 0;
+    }
+    &__content {
+        position: relative;
+        z-index: 2;
+        font-family: "Roboto";
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.75;
+        text-align: left;
+        color: $black;
+        padding: 20px 15px 50px;
+        background-color: $white;
+        @include media(">=laptop") {
+            width: 125%;
+        }
+        p {
+            margin: 0 0 10px;
+        }
+
+        a {
+            border-bottom: 1px solid $black;
+            &:hover,
+            &:focus,
+            &:active {
+                border-bottom: 0px;
+            }
+        }
+    }
+    &__ctas {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        @include media(">=tablet") {
+            flex-direction: row;
+        }
+        .btn {
+            border: 2px solid transparent;
+            font-family: "Roboto";
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.33;
+            letter-spacing: 2px;
+            color: $white;
+            margin: 10px 0;
+            text-decoration: none;
+            &:first-child {
+                background-color: $red;
+                @include media(">=tablet") {
+                    margin: 0 20px 0 0;
+                }
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: $black;
+                }
+            }
+            &:last-child {
+                background-color: transparent;
+                border-color: $orange;
+                color: $black;
+                @include media(">=tablet") {
+                    margin: 0;
+                }
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: $orange;
+                    color: $white;
+                }
+            }
+        }
+    }
+    &__img {
+        margin: 0 -30px;
+        @include media(">=tablet") {
+            position: relative;
+            top: -30%;
+            margin: 0 -30px -22%;
+        }
+        @include media(">=laptop") {
+            position: absolute;
+            top: 0;
+            right: -24px;
+            z-index: 1;
+        }
+        @include media(">=desktop") {
+            right: 3%;
+        }
+        img {
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+            height: 100%;
+            object-fit: cover;
+            @include media(">=tablet") {
+                position: relative;
+                width: 100%;
+                max-height: 700px;
+                margin-bottom: -10px;
+                object-position: top left;
+            }
+            @include media(">=laptop") {
+                width: 100%;
+                object-position: center left;
+            }
+        }
+    }
+
+    // :before - bg color
+    &:before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: calc(-200vw + 190%);
+        width: 200vw;
+        height: 100%;
+        background-color: $white;
+    }
+}

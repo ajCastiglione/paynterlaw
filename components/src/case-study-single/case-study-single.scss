@@ -1,0 +1,19 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.case-study {
+    background-color: $gray-100;
+    padding: 32px;
+    @include media(">=tablet") {
+        padding: 64px;
+    }
+    @include media(">=laptop") {
+        padding: 128px 32px;
+    }
+    a {
+        border-bottom: 1px solid $black;
+        &:hover {
+            border-bottom: none;
+        }
+    }
+}

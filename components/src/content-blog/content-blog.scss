@@ -1,0 +1,124 @@
+@import "../../../global/src/css/functions";
+@import "../../../global/src/css/_settings/variables";
+
+.articles {
+    padding: 50px 36px;
+    @include media(">=tablet") {
+        padding: 114px 64px 0 32px;
+    }
+    @include media(">=laptop") {
+        padding: 198px 64px 32px;
+    }
+    @include media(">=desktop") {
+        padding-left: 85px;
+    }
+    // blog content title
+    &__title {
+        font-family: Montserrat;
+        font-size: 20px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.4;
+        letter-spacing: 2.22px;
+        text-align: left;
+        text-transform: uppercase;
+        color: $black;
+        border-bottom: 2px solid $gray-100;
+        padding-bottom: 12px;
+        margin: 0 0 32px;
+        @include media(">=tablet") {
+            padding-bottom: 24px;
+            margin: 0 0 48px;
+        }
+        @include media(">=laptop") {
+            margin: 0 0 64px;
+        }
+    }
+    // Posts container
+    &__posts {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 32px 0;
+    }
+    // Single excerpt
+    &__post {
+        display: grid;
+        @include media(">=desktop") {
+            grid-template-columns: 194px 1fr;
+            grid-gap: 0 24px;
+        }
+
+        &:hover,
+        &:active,
+        &:focus {
+            .post-img {
+                transform: scale(1.2);
+            }
+        }
+
+        .post-img-link {
+            overflow: hidden;
+        }
+
+        .post-img {
+            display: none;
+            height: 194px;
+            width: 194px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            @include media(">=desktop") {
+                display: block;
+            }
+        }
+        .post-title {
+            font-family: Montserrat;
+            font-size: 20px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.23;
+            letter-spacing: normal;
+            text-align: left;
+            margin: 0 0 10px;
+            color: $black;
+            @include media(">=tablet") {
+                font-size: 24px;
+            }
+            @include media(">=laptop") {
+                font-size: 30px;
+            }
+        }
+        .post-cat {
+            display: inline-block;
+            margin-right: 48px;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            text-transform: uppercase;
+            color: $black;
+            @include media(">=laptop") {
+                font-size: 18px;
+            }
+        }
+        .post-date {
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.7;
+            letter-spacing: normal;
+            text-align: left;
+            color: $gray-500;
+            @include media(">=laptop") {
+                font-size: 20px;
+            }
+        }
+    }
+}

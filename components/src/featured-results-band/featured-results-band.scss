@@ -1,0 +1,174 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.featured-results {
+    padding: 40px 0;
+
+    @include media(">=tablet") {
+        padding: 60px 30px;
+    }
+    @include media(">=laptop") {
+        padding: 128px 0;
+    }
+    &__container {
+        display: grid;
+        @include media(">=tablet") {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px 15px;
+        }
+        @include media(">=laptop") {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    // Orange line
+    &__line {
+        display: block;
+        width: 97%;
+        height: 2px;
+        background-color: $tangerine;
+        margin-top: 15px;
+        @include media(">=tablet") {
+            grid-column: 1;
+        }
+        @include media(">=laptop") {
+            grid-column: 1/3;
+        }
+    }
+
+    // Title and content
+    &__content {
+        @include media(">=laptop") {
+            grid-column: 3/3;
+            padding-left: 20px;
+        }
+    }
+
+    // Content title
+    &__title {
+        margin: 25px 0 15px;
+        font-family: "Montserrat";
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 1.22;
+        text-align: left;
+        color: $black;
+        @include media(">=tablet") {
+            font-size: 32px;
+            margin-top: 0;
+        }
+        @include media(">laptop") {
+            font-size: 36px;
+        }
+    }
+
+    // Content text
+    &__text {
+        font-family: "Roboto";
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.75;
+        text-align: left;
+        color: $black;
+        p {
+            margin: 0;
+        }
+        a {
+            border-bottom: 1px solid $black;
+            &:hover,
+            &:focus,
+            &:active {
+                border-bottom: 0px;
+            }
+        }
+    }
+
+    // Results container
+    &__results {
+        grid-row: 1;
+        @include media(">=tablet") {
+            margin-top: -200px;
+            grid-row: auto;
+        }
+        @media (min-width: 820px) {
+            margin-top: -175px;
+        }
+        @include media(">=laptop") {
+            margin-top: -40px;
+            grid-column: 1/3;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        .meta-title {
+            font-family: "Roboto";
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            color: $red;
+            text-transform: uppercase;
+            margin: 0;
+            max-width: 280px;
+            @include media(">=laptop") {
+                font-size: 18px;
+            }
+        }
+        .value {
+            font-family: "Montserrat";
+            font-weight: bold;
+            line-height: 0.7;
+            font-size: 50px;
+            text-align: left;
+            color: $black;
+            margin: 15px 0;
+            @include media(">=tablet") {
+                font-size: 70px;
+            }
+            @include media(">=laptop") {
+                font-size: 100px;
+            }
+        }
+    }
+
+    // View all btn
+    &__button {
+        margin-top: 25px;
+        @include media(">=laptop") {
+            grid-column: 3/3;
+            align-self: flex-end;
+            padding-left: 20px;
+        }
+        .btn {
+            font-family: "Roboto";
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            color: $gray;
+            position: relative;
+            text-transform: uppercase;
+            padding-left: 0;
+            svg {
+                position: absolute;
+                right: -10px;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+                transition: all 0.3s ease;
+                path {
+                    stroke: $orange;
+                }
+            }
+            &:hover,
+            &:focus,
+            &:active {
+                color: $orange;
+                svg {
+                    right: -20px;
+                }
+            }
+        }
+    }
+}

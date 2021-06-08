@@ -1,0 +1,340 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+@import "../single-our-team/single-our-team";
+
+.search {
+    .wrapper {
+        @include media(">=tablet") {
+            padding: 0 64px;
+        }
+        @include media(">=laptop") {
+            padding: 0 30px;
+        }
+    }
+    // Grid - content/sidebar
+    &__grid {
+        display: grid;
+        margin-top: 65px;
+
+        @include media(">=laptop") {
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 0 133px;
+            margin-top: 115px;
+        }
+        @include media(">=desktop") {
+            grid-template-columns: 1.7fr 1fr;
+        }
+    }
+    // Page title
+    &__title {
+        font-family: Montserrat;
+        font-size: 36px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.4;
+        letter-spacing: normal;
+        text-align: left;
+        color: var(--off-black);
+        @include media(">=tablet") {
+            font-size: 46px;
+        }
+        @include media(">=laptop") {
+            font-size: 50px;
+        }
+    }
+    // Search form
+    &__form-container {
+        .search__form {
+            width: 100%;
+            position: relative;
+            svg {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto 0;
+                left: 32px;
+                path {
+                    stroke: $tangerine;
+                }
+            }
+        }
+        .search__label {
+            display: none;
+        }
+        .search__input {
+            width: 100%;
+            padding: 25px 25px 25px 75px;
+            background-color: $gray-100;
+            font-family: Roboto;
+            font-size: 20px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.7;
+            letter-spacing: normal;
+            text-align: left;
+            color: $black;
+            border: 2px solid transparent;
+            border-radius: 0;
+            -webkit-appearance: none;
+            @include media(">=laptop") {
+                padding: 50px 50px 50px 117px;
+            }
+            &:active,
+            &:focus {
+                border-color: $tangerine;
+                outline: none;
+            }
+            &::placeholder {
+                color: $black;
+            }
+        }
+    }
+    // Search results
+    &__results-header {
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: left;
+        text-transform: uppercase;
+        color: $black;
+        padding-bottom: 24px;
+        border-bottom: 2px solid $gray-100;
+    }
+    // Search filters
+    &__filters {
+        margin-top: 32px;
+        position: relative;
+        @include media(">=laptop") {
+            margin-top: 64px;
+        }
+
+        .search__filter-list {
+            display: none;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            @include media(">=laptop") {
+                display: flex;
+            }
+            li {
+                margin: 8px 32px;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            a {
+                display: inline-block;
+                font-family: Roboto;
+                font-size: 18px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.33;
+                letter-spacing: 2px;
+                text-align: left;
+                text-transform: uppercase;
+                color: $black;
+                padding: 12px 20px;
+                &.active {
+                    border: 2px solid $orange;
+                }
+            }
+        }
+        // Down icon
+        .icon {
+            position: absolute;
+            right: 15px;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            @include media(">=laptop") {
+                display: none;
+            }
+            svg {
+                height: 60px;
+                width: 15px;
+                path {
+                    stroke: $black;
+                }
+            }
+        }
+        .search__mobile-list {
+            width: 100%;
+            max-width: 100%;
+            height: 60px;
+            font-size: 100%;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 0;
+            background-color: $white;
+            border: none;
+            border: 2px solid $orange;
+            color: $black;
+            padding: 15px;
+            appearance: none;
+            &:active,
+            &:focus {
+                border-color: $black;
+                outline: none;
+            }
+            @include media(">=laptop") {
+                display: none;
+            }
+        }
+    }
+    // Search Results - Articles
+    &__result {
+        margin: 32px 0;
+        @include media(">=laptop") {
+            margin: 64px 0;
+        }
+    }
+    &__result-meta-title {
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: left;
+        text-transform: uppercase;
+        color: $orange;
+        margin: 0;
+    }
+    &__result-title {
+        font-family: Montserrat;
+        font-size: 30px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.23;
+        letter-spacing: normal;
+        text-align: left;
+        margin: 16px 0;
+        color: $black;
+        a {
+            color: inherit;
+        }
+    }
+    &__result-summary {
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.7;
+        letter-spacing: normal;
+        text-align: left;
+        color: $gray-500;
+        p {
+            margin: 0;
+        }
+    }
+
+    // Search sidebar
+    &__cta-container {
+        position: relative;
+        border: 2px solid $tangerine;
+        padding: 16px 16px 16px 80px;
+        margin: 32px 0;
+        @include media(">=tablet") {
+            margin-bottom: 64px;
+            padding: 32px 32px 32px 80px;
+        }
+        @include media(">=laptop") {
+            margin-top: 50px;
+        }
+    }
+    &__cta-icon {
+        position: absolute;
+        left: 25px;
+        top: 42px;
+    }
+    &__cta-title {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: left;
+        text-transform: uppercase;
+        color: $orange;
+        margin: 0;
+        @include media(">=tablet") {
+            font-size: 18px;
+        }
+    }
+    &__cta-content {
+        font-family: Montserrat;
+        font-weight: bold;
+        font-size: 26px;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.21;
+        letter-spacing: normal;
+        text-align: left;
+        color: $black;
+        margin: 8px 0 32px;
+        @include media(">=laptop") {
+            font-size: 29px;
+        }
+    }
+    &__cta-btn {
+        position: relative;
+        display: inline-block;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: left;
+        text-transform: uppercase;
+        color: $white;
+        background-color: $orange;
+        padding: 12px 45px 12px 20px;
+        svg {
+            transition: all 0.3s ease;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 15px;
+            margin: auto 0;
+            path {
+                stroke: $white;
+            }
+        }
+        &:hover {
+            background-color: $black;
+            svg {
+                right: 10px;
+            }
+        }
+        @include media(">=tablet") {
+            font-size: 18px;
+        }
+    }
+    // Quick actions band
+    .quick-actions {
+        background-color: $gray-100;
+        position: relative;
+        width: 100vw;
+        left: calc(-50vw + 50%);
+    }
+}

@@ -1,0 +1,176 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.columned-highlight {
+    position: relative;
+    padding: 40px 0;
+    @include media(">=tablet") {
+        padding: 64px 0;
+    }
+    @include media(">=laptop") {
+        padding: 128px 0;
+        .home & {
+            margin-top: 128px;
+        }
+    }
+    // If CTA follows, reduce its top margin
+    + .cta {
+        margin-top: 1.5rem;
+    }
+
+    &__container {
+        z-index: 1;
+        position: relative;
+    }
+    &__meta {
+        font-family: "Roboto";
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: center;
+        color: $black;
+        text-transform: uppercase;
+        margin: 0;
+    }
+    &__title {
+        font-family: "Montserrat";
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 1.22;
+        text-align: center;
+        color: $black;
+        margin: 10px 0;
+
+        @include media(">=tablet") {
+            font-size: 36px;
+        }
+    }
+    &__values {
+        display: grid;
+        margin-top: 40px;
+        @include media(">=laptop") {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 40px;
+            &.col-2 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        .value {
+            position: relative;
+            text-align: center;
+            max-width: 550px;
+            margin: 20px auto;
+            @include media(">=laptop") {
+                padding-left: 50px;
+                max-width: 100%;
+                margin: 0;
+                text-align: left;
+            }
+            .icon {
+                max-width: 29px;
+                @include media(">=laptop") {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+            }
+            .title {
+                font-family: "Montserrat";
+                font-size: 20px;
+                font-weight: bold;
+                line-height: 1.2;
+                color: $black;
+                margin: 0 0 10px;
+            }
+            .text {
+                font-family: "Roboto";
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 1.75;
+                color: $black;
+
+                p {
+                    margin: 0;
+                }
+
+                a {
+                    border-bottom: 1px solid $black;
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        border-bottom: 0px;
+                    }
+                }
+            }
+            a {
+                transition: all 0.3s ease;
+            }
+        }
+    }
+    &[data-bg="white"] {
+        &:after {
+            background-color: $white;
+        }
+        .columned-highlight__values {
+            .value {
+                a {
+                    color: $orange;
+                    border-bottom: 1px solid $orange;
+                    &:hover {
+                        border-bottom: 0px;
+                    }
+                }
+            }
+        }
+    }
+    &[data-bg="orange"] {
+        .columned-highlight__title {
+            color: $white;
+        }
+        .columned-highlight__values {
+            .value {
+                .text {
+                    color: $white;
+                }
+                a {
+                    color: $white;
+                    border-bottom: 1px solid $white;
+                    &:hover {
+                        border-bottom: 0px;
+                    }
+                }
+            }
+        }
+        &:after {
+            background-color: $orange;
+        }
+    }
+    &[data-bg="gray"] {
+        &:after {
+            background-color: $gray-100;
+        }
+        .columned-highlight__values {
+            .value {
+                a {
+                    color: $orange;
+                    border-bottom: 1px solid $orange;
+                    &:hover,
+                    &:focus,
+                    &:active {
+                        border-bottom: 0px;
+                    }
+                }
+            }
+        }
+    }
+    &:after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: calc(-200vw + 190%);
+        width: 200vw;
+        height: 100%;
+        background-color: $gray-100;
+    }
+}

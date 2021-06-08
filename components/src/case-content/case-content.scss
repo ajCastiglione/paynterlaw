@@ -1,0 +1,226 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.case {
+    &__container {
+        position: relative;
+        width: 100vw;
+        left: calc(-50vw + 50%);
+    }
+    &__feat-img {
+        object-fit: cover;
+        width: 100vw;
+        position: relative;
+        left: calc(-50vw + 50%);
+        max-height: 484px;
+    }
+
+    // Grid for content and sidebar
+    &__grid {
+        padding: 32px;
+        display: grid;
+        grid-gap: 32px 0;
+        @include media(">=tablet") {
+            grid-gap: 64px 0;
+            padding: 64px;
+        }
+        @include media(">=laptop") {
+            padding: 128px 16px;
+            grid-template-columns: 0.5fr 1.5fr;
+            grid-gap: 0 133px;
+        }
+    }
+
+    .sidebar {
+        @include media(">=tablet") {
+            max-width: 303px;
+        }
+        &__title {
+            font-family: Montserrat;
+            font-size: 20px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.4;
+            letter-spacing: 2.22px;
+            text-align: left;
+            text-transform: uppercase;
+            margin: 0 0 8px;
+            color: $black;
+        }
+        &__subpage-title {
+            font-family: Roboto;
+            font-size: 20px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.7;
+            letter-spacing: normal;
+            text-align: left;
+            color: $black;
+            display: block;
+            border: solid 2px $tangerine;
+            padding: 5px 15px;
+            margin: 24px 0;
+            &:hover {
+                background-color: $orange;
+                border-color: $orange;
+                color: $white;
+            }
+            &.curpage {
+                background-color: $orange;
+                color: $black;
+                &:hover {
+                    background-color: $white;
+                    color: $black;
+                }
+            }
+        }
+    }
+
+    &__content {
+        .case__title {
+            font-family: Montserrat;
+            font-size: 26px;
+            font-weight: 600;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.22;
+            letter-spacing: normal;
+            text-align: left;
+            color: $black;
+            margin: 5px 0 0;
+            @include media(">=tablet") {
+                font-size: 32px;
+            }
+            @include media(">=laptop") {
+                font-size: 36px;
+            }
+        }
+        .case__meta-title {
+            font-family: Roboto;
+            font-size: 14px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            text-transform: uppercase;
+            color: $orange;
+            margin: 0;
+            @include media(">=tablet") {
+                font-size: 19px;
+            }
+        }
+        p {
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.75;
+            letter-spacing: normal;
+            text-align: left;
+            color: $black;
+            margin: 12px 0;
+            @include media(">=tablet") {
+                margin: 24px 0;
+            }
+            &:first-of-type {
+                font-size: 20px;
+                line-height: 1.7;
+                color: $gray-500;
+                margin: 32px 0;
+                @include media(">=tablet") {
+                    margin: 48px 0;
+                }
+            }
+        }
+        ul {
+            font-family: Roboto;
+            font-size: 16px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.75;
+            letter-spacing: normal;
+            text-align: left;
+            color: $black;
+            margin-left: 0;
+            padding-left: 35px;
+            li {
+                margin: 16px 0;
+            }
+        }
+        a {
+            color: $orange;
+            border-bottom: 1px solid $orange;
+            &:hover {
+                border-bottom: none;
+            }
+        }
+        img.alignright {
+            @include media(">=phablet") {
+                float: right;
+                margin-left: 15px;
+            }
+        }
+        img.alignleft {
+            @include media(">=phablet") {
+                float: left;
+                margin-right: 15px;
+            }
+        }
+        img.aligncenter {
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        }
+    }
+    &__callout {
+        border: solid 2px $tangerine;
+        padding: 20px;
+
+        @include media(">=laptop") {
+            padding: 40px;
+            margin: 56px 0 0;
+        }
+        .callout-title {
+            font-family: Roboto;
+            font-size: 19px;
+            font-weight: bold;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.33;
+            letter-spacing: 1.98px;
+            text-align: left;
+            text-transform: uppercase;
+            color: $orange;
+            margin: 0;
+        }
+        .callout-content {
+            font-family: Montserrat;
+            font-size: 22px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.21;
+            letter-spacing: normal;
+            text-align: left;
+            color: $black;
+            margin: 0;
+            p {
+                margin: inherit;
+                font-size: inherit;
+            }
+            @include media(">=laptop") {
+                font-size: 26px;
+            }
+
+            @include media(">=laptop") {
+                font-size: 29px;
+            }
+        }
+    }
+}

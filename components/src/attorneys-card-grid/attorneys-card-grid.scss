@@ -1,0 +1,283 @@
+@import "../../../global/src/css/functions.scss";
+@import "../../../global/src/css/_settings/variables";
+
+.attorneys {
+    // Grid container for team members
+    padding: 64px 0;
+    @include media(">=laptop") {
+        padding: 128px 0;
+    }
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 20px 0;
+        @include media(">=tablet") {
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+        @include media(">=laptop") {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    &__meta {
+        font-family: Roboto;
+        font-size: 14px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: center;
+        text-transform: uppercase;
+        color: $orange;
+        @include media(">=tablet") {
+            font-size: 19px;
+        }
+    }
+    &__title {
+        font-family: Montserrat;
+        font-size: 26px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.22;
+        letter-spacing: normal;
+        text-align: center;
+        color: $black;
+        @include media(">=tablet") {
+            font-size: 32px;
+        }
+        @include media(">=laptop") {
+            font-size: 36px;
+        }
+    }
+
+    // Attorney card
+    &__card {
+        position: relative;
+        min-height: 457px;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        @include media(">=laptop") {
+            min-height: 567px;
+        }
+        .info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            background-color: $orange;
+            padding: 32px;
+            transition: all 0.3s ease;
+            @include media(">=laptop") {
+                bottom: -150px;
+                z-index: -1;
+                opacity: 0;
+            }
+            .job-title {
+                font-family: Roboto;
+                font-size: 14px;
+                font-weight: 500;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.33;
+                letter-spacing: 2px;
+                text-align: left;
+                color: $white;
+                font-weight: 400;
+                margin: 0;
+                @include media(">=laptop") {
+                    font-size: 18px;
+                }
+            }
+            .name {
+                font-family: Montserrat;
+                font-size: 24px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.21;
+                letter-spacing: normal;
+                text-align: left;
+                color: $white;
+                margin: 0;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                @include media(">=laptop") {
+                    font-size: 28px;
+                }
+
+                .link {
+                    color: inherit;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+                svg {
+                    path {
+                        stroke: $white;
+                    }
+                }
+            }
+        }
+        &:hover {
+            .info {
+                bottom: 0;
+                opacity: 1;
+                z-index: 1;
+            }
+        }
+    }
+}
+
+// Careers band
+.careers {
+    background-color: $gray-100;
+
+    &.col-1 {
+        @include media(">=tablet") {
+            grid-column: 1/3;
+        }
+        @include media(">=laptop") {
+            grid-column: auto;
+        }
+        .careers__img {
+            display: none;
+        }
+        .careers__info {
+            padding: 16px;
+            @include media(">=desktop") {
+                padding: 16px 32px;
+            }
+        }
+    }
+    &.col-2 {
+        @include media(">=laptop") {
+            grid-column: 2/4;
+        }
+        @include media("<=tablet") {
+            .careers__cta {
+                .btn {
+                    width: 100%;
+                    margin: 8px 0;
+                    text-align: center;
+                }
+            }
+        }
+        .careers__img {
+            display: none;
+        }
+    }
+    &.col-3 {
+        @include media(">=tablet") {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-column: 1/3;
+        }
+        @include media(">=laptop") {
+            grid-column: 1/4;
+        }
+    }
+
+    // container for text content
+    &__info {
+        padding: 16px 32px;
+        @include media(">=laptop") {
+            padding: 100px;
+        }
+    }
+    &__img {
+        display: none;
+        @include media(">=tablet") {
+            display: block;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &__meta {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-align: left;
+        text-transform: uppercase;
+        color: $orange;
+        @include media(">=laptop") {
+            font-size: 19px;
+        }
+    }
+    &__title {
+        font-family: Montserrat;
+        font-size: 24px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.22;
+        letter-spacing: normal;
+        text-align: left;
+        margin: 0;
+        color: $black;
+        @include media(">=tablet") {
+            font-size: 32px;
+        }
+        @include media(">=laptop") {
+            font-size: 36px;
+        }
+    }
+    &__content {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.75;
+        letter-spacing: normal;
+        text-align: left;
+        color: $black;
+    }
+    &__cta {
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 2px;
+        text-align: left;
+        color: $white;
+        .btn {
+            width: 100%;
+            margin: 8px 0;
+            text-align: center;
+            border: 2px solid $red;
+            @include media(">=tablet") {
+                width: auto;
+                margin: 0;
+            }
+            &:first-child {
+                color: inherit;
+                background-color: $red;
+                &:hover {
+                    background-color: $black;
+                    border-color: $black;
+                }
+            }
+            &:last-child {
+                color: $black;
+                border-color: $orange;
+                &:hover {
+                    background-color: $orange;
+                    color: $white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,138 @@
+@import "../../../global/src/css/functions";
+@import "../../../global/src/css/_settings/variables";
+
+.hero {
+
+    .blog &,
+    .archive & {
+        background-color: $pastel_red;
+    }
+
+    &.no-img {
+        @include media(">=laptop") {
+            .hero__inner {
+                grid-column: 1;
+            }
+        }
+        .hero__grid {
+            bottom: 0;
+            padding-bottom: 25px;
+        }
+    }
+    padding: 0 32px 0;
+    @include media(">=tablet") {
+        padding: 32px 64px 0;
+    }
+    @include media(">=desktop") {
+        padding-top: 50px;
+    }
+    &__grid {
+        display: grid;
+        position: relative;
+        padding: 0;
+        bottom: -50px;
+        grid-gap: 64px 0;
+        @include media(">=laptop") {
+            grid-template-columns: 1fr 1.5fr;
+            grid-gap: 0 133px;
+            bottom: -70px;
+            .no-img & {
+                grid-template-columns: 1.5fr 1fr;
+            }
+        }
+
+        &.wrapper {
+            &:hover,
+            &:active,
+            &:focus {
+                .hero__img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+    &__img-container {
+        display: block;
+        position: relative;
+        grid-row: 2;
+        overflow: hidden;
+        @include media(">=laptop") {
+            grid-row: auto;
+            max-width: 412px;
+        }
+        .blog &,
+        .archive & {
+            &:before {
+                position: absolute;
+                content: "";
+                top: -24px;
+                left: -24px;
+                width: 100%;
+                height: 100%;
+                border: 2px solid $tangerine;
+                z-index: 1;
+                @include media(">=laptop") {
+                    max-width: 412px;
+                }
+            }
+        }
+    }
+    &__img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-height: 484px;
+        transition: all 0.3s ease;
+        @include media(">=laptop") {
+            max-width: 412px;
+            height: 484px;
+        }
+    }
+    &__category {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.33;
+        letter-spacing: 1.98px;
+        text-transform: uppercase;
+        color: $orange;
+        margin: 0;
+        .blog & {
+            color: $white;
+        }
+        @include media(">=desktop") {
+            font-size: 18px;
+        }
+    }
+    &__title {
+        font-family: Montserrat;
+        font-size: 36px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.4;
+        letter-spacing: normal;
+        color: $black;
+        margin: 0 0 24px;
+        @include media(">=tablet") {
+            font-size: 46px;
+        }
+        @include media(">=desktop") {
+            font-size: 50px;
+        }
+    }
+    &__date {
+        font-family: Roboto;
+        font-size: 20px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.7;
+        letter-spacing: normal;
+        color: $gray-500;
+        margin: 0;
+    }
+}

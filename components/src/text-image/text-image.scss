@@ -1,0 +1,84 @@
+@import "../../../global/src/css/functions";
+@import "../../../global/src/css/_settings/variables";
+
+.content-image {
+    width: 100vw;
+    left: calc(-50vw + 50%);
+    position: relative;
+    &[data-bg="gray"] {
+        background-color: $gray-100;
+    }
+    &[data-bg="white"] {
+        background-color: $white;
+    }
+    &__container {
+        padding: 64px 64px 0;
+        display: grid;
+        @include media(">=laptop") {
+            grid-template-columns: 1.3fr 0.7fr;
+            padding: 64px 83px 0;
+            grid-gap: 0 133px;
+        }
+    }
+    &__title {
+        font-family: Montserrat;
+        font-size: 36px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.22;
+        letter-spacing: normal;
+        text-align: left;
+        color: $black;
+        margin: 0 0 24px;
+        @include media(">=tablet") {
+            font-size: 36px;
+            margin: 0 0 32px;
+        }
+    }
+    &__text {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.75;
+        letter-spacing: normal;
+        text-align: left;
+        color: $black;
+        padding-bottom: 48px;
+        @include media(">=tablet") {
+            padding-bottom: 64px;
+        }
+        p {
+            margin: 0;
+        }
+        a {
+            border-bottom: 1px solid $black;
+            &:hover,
+            &:focus,
+            &:active {
+                border-bottom: 0px;
+            }
+        }
+    }
+    &__img {
+        align-self: flex-end;
+        img {
+            display: block;
+        }
+
+        .desk_img {
+            display: none;
+        }
+        @include media(">=laptop") {
+            .desk_img {
+                display: block;
+            }
+
+            .mobile_img {
+                display: none;
+            }
+        }
+    }
+}
